@@ -65,14 +65,14 @@
                 Catégories
             </h5>
             <div class="catégories">
-                <a href="http://localhost/boutique/produit.php?id=45">
+                <a href="">
                     <div class="catégorie">
                         <p class="cat-tipo">
                             iPhones
                         </p>
                     </div>
                 </a>
-                <a href="http://localhost/boutique/produit.php?id=46">
+                <a href="">
                     <div class="catégorie1">
                         <p class="cat-tipo">
                             iPad
@@ -81,7 +81,7 @@
                 </a>
             </div>
             <div class="catégories1">
-                <a href="http://localhost/boutique/produit.php?id=47">
+                <a href="">
                     <div class="catégorie2">
                         <p class="cat-tipo1">
                             Accessoires

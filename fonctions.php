@@ -197,31 +197,28 @@ public function modifpassword($ancienpass, $newpass, $newpassconfirm)
 
 
 
-public function accesconnect()
+public function acces_connect()
 {
     if(!isset($_SESSION['login'])){
-    echo "<body><main><section class = 'add_panier_msg'><section class = 'case_add_panier'>Tu dois être connecté pour acceder a cette page <br> Redirection en cours ...";
-    header("refresh: 3; url=connexion.php");
-    echo "</main>";
+    echo "<body><section class = 'add_panier_msg'><section class = 'case_add_panier'>Tu dois être connecté pour acceder a cette page <br> Redirection en cours ...</section></section>";
     include 'footer.php';
     echo '</body>';
+    header("refresh: 3; url=connexion.php");
     exit;
     }
 }
 
-public function accesconnect_admin()
+
+public function acces_admin()
 {
-    if($_SESSION['id_droit'] != 3){
-    echo "<body><main><section class = 'add_panier_msg'><section class = 'case_add_panier'>Tu dois être admin pour acceder a cette page <br> Redirection en cours ...";
-    header("refresh: 3; url=connexion.php");
-    echo "</main>";
+    if($_SESSION['id_droit'] !=3){
+        echo "<body><section class = 'add_panier_msg'><section class = 'case_add_panier'>Tu dois être admin pour acceder a cette page <br> Redirection en cours ...</section></section>";
     include 'footer.php';
     echo '</body>';
+    header("refresh: 3; url=index.php");
     exit;
     }
 }
-
-
 
 
 
@@ -607,5 +604,40 @@ $resultat = $requete->fetchall();
         </div>";
     } 
 }
+
+
+
+
+public function mes_commandes(){
+    $db = $this->_db;
+    $id = $_SESSION['id'];
+    $requete = $db->prepare("SELECT * FROM detailcommande INNER JOIN commande on detailcommande.id_commande = commande.id INNER JOIN article on detailcommande.id_produit = article.id_article INNER JOIN utilisateurs on commande.id_utilisateur = utilisateurs.id WHERE id_utilisateur = '$id'");
+    $requete->execute();
+    $resultat = $requete->fetchall();
+
+    
+    foreach ($resultat as $key) {
+        $id_article = $key['id_article'];
+
+        echo "<tr>";
+            echo "<td class='tdpetit'>".$key['id_commande']."</td>";
+            echo "<td class='tdpetit'>".$key['quantite']."</td>";
+            echo "<td class='tdmoyen'>".$key['prix_total']. '.OO €' ."</td>";
+            echo "<td class='tdpetit'>".$key['nom_commande']."</td>";
+            echo "<td class='tdpetit'>".$key['prenom_commande']."</td>";
+            echo "<td class='tdpetit'>".$key['pays']."</td>";
+            echo "<td class='tdpetit'>".$key['ville']."</td>";
+            echo "<td class='tdpetit'>".$key['cp']."</td>";
+            echo "<td class='tdpetit'>".$key['telephone']."</td>";
+            echo "<td class='tdgrand'>".$key['adresse']."</td>";
+            echo "<td class='tdgrand'>".$key['email_commande']."</td>";
+            echo "<td class='tdgrand'>".$key['nom_article']."</td>";
+            echo "<td class='tdgrand2'>" . "<a href='produitselect.php?idproduct=$id_article'>" . "<img class = 'img_panier2' src = 'images-boutique/" .$key['image_article']. "'>" . "</a>" . "</td>";
+            echo "<td class='tdgrand'>".$key['date_commande']."</td>";
+            echo "</tr>";
+
+    }
+}
+
 
 }

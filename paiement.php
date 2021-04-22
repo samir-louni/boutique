@@ -1,6 +1,5 @@
-
 <?php include 'header.php';?>
-<?php $user->accesconnect(); ?>
+<?php $user->acces_connect(); ?>
 <?php
 require_once('vendor/autoload.php'); 
 $prix = $panier->total();

@@ -1,6 +1,5 @@
-
 <?php include 'header.php';?>
-<?php $user->accesconnect(); ?>
+<?php $user->acces_connect(); ?>
 <main>
 <section class = 'caserouge'>
         <div class = 'caserougepanier'>

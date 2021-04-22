@@ -1,6 +1,5 @@
 <?php include 'header.php';?>
-<?php $user->accesconnect(); ?>
-
+<?php $user->acces_connect(); ?>
 <section class = 'caserouge'>
     <div class = 'titrecaserouge'>
             Produits

@@ -30,6 +30,17 @@ $user->dbconnect();
     </div>
     <nav>
         <a href="recherche.php"><img class = 'logorecherche' src="images-boutique/recherche.png"></a>
+        <?php 
+        if(isset($_SESSION['login'])){
+            if($_SESSION['id_droit'] != 3){
+                echo '';
+            }else{
+                echo "<li><a href = 'admin.php'>Admin</a></li>";
+            }
+        }else{
+            echo '';
+        }
+        ?>
         <li><a href = 'index.php'>Accueil</a></li>
         <?php $user->affichercategorie(); ?>
     </nav>
