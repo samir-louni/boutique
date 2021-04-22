@@ -2,7 +2,6 @@
 include 'header.php';
 $id = $_GET['idproduct'];
 ?>
-<?php $user->acces_connect(); ?>
 
 <section class = 'case_base_produit'>
     <?php $user->afficherarticleseul($id); ?>

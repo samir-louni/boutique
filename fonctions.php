@@ -209,6 +209,12 @@ public function acces_connect()
 }
 
 
+
+/// Fonction qui donne acces qu'aux admin
+
+
+
+
 public function acces_admin()
 {
     if($_SESSION['id_droit'] !=3){
@@ -606,6 +612,7 @@ $resultat = $requete->fetchall();
 }
 
 
+// //////////////////////////////////////////: FONCTION POUR AFFICHER LES PRODUITS COMMANDE PAR L'UTILISATEUR CONNECTE
 
 
 public function mes_commandes(){
@@ -622,21 +629,56 @@ public function mes_commandes(){
         echo "<tr>";
             echo "<td class='tdpetit'>".$key['id_commande']."</td>";
             echo "<td class='tdpetit'>".$key['quantite']."</td>";
-            echo "<td class='tdmoyen'>".$key['prix_total']. '.OO €' ."</td>";
+            echo "<td class='tdgrand'>".$key['prix_total']. '.OO €' ."</td>";
             echo "<td class='tdpetit'>".$key['nom_commande']."</td>";
             echo "<td class='tdpetit'>".$key['prenom_commande']."</td>";
             echo "<td class='tdpetit'>".$key['pays']."</td>";
             echo "<td class='tdpetit'>".$key['ville']."</td>";
             echo "<td class='tdpetit'>".$key['cp']."</td>";
             echo "<td class='tdpetit'>".$key['telephone']."</td>";
-            echo "<td class='tdgrand'>".$key['adresse']."</td>";
+            echo "<td class='tdgrand2'>".$key['adresse']."</td>";
             echo "<td class='tdgrand'>".$key['email_commande']."</td>";
-            echo "<td class='tdgrand'>".$key['nom_article']."</td>";
-            echo "<td class='tdgrand2'>" . "<a href='produitselect.php?idproduct=$id_article'>" . "<img class = 'img_panier2' src = 'images-boutique/" .$key['image_article']. "'>" . "</a>" . "</td>";
-            echo "<td class='tdgrand'>".$key['date_commande']."</td>";
+            echo "<td class='tdgrand2'>".$key['nom_article']."</td>";
+            echo "<td class='tdmoyen'>" . "<a href='produitselect.php?idproduct=$id_article'>" . "<img class = 'img_panier2' src = 'images-boutique/" .$key['image_article']. "'>" . "</a>" . "</td>";
+            echo "<td class='tdgrand2'>".$key['date_commande']."</td>";
             echo "</tr>";
 
     }
+}
+
+public function produit_phare($id_article, $image_phare, $text)
+{
+    $db = $this->_db;
+    $requete =$db->prepare("INSERT INTO article_phare (`id_articles`, `image_phare`, `nom_article_phare`) VALUES ('$id_article', '$image_phare', '$text')");
+    $requete->execute();
+
+
+}
+
+
+public function produit_phare_affiche()
+{
+
+$db = $this->_db;
+$requete =$db->prepare("SELECT * FROM article_phare  ORDER BY id_phare DESC LIMIT 1");
+$requete->execute();
+$resultat = $requete->fetchall();
+
+    foreach ($resultat as $key) {
+        $nom = $key['nom_article_phare'];
+        $image = $key['image_phare'];
+        $image_fin = "background-image:url('images-boutique/$image')";
+        $id = $key['id_articles'];
+
+        echo "<div class='iphone-red' style=$image_fin alt='Produit phare'>";
+            echo " <div class='arrivage'>
+                        <h1 class='titre-acceuil-1'>
+                            $nom
+                        </h1>
+                        <a href='produitselect.php?idproduct=$id'><button class='butt-acceuil-1'>En profiter</button></a>
+                    </div>
+               </div>";
+    } 
 }
 
 

@@ -6,6 +6,7 @@ $panier = new panier();
 $user = new boutique();
 $panier->dbconnect();
 $user->dbconnect();
+$zebi = 'ZEBINTM';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -44,5 +45,5 @@ $user->dbconnect();
         <li><a href = 'index.php'>Accueil</a></li>
         <?php $user->affichercategorie(); ?>
     </nav>
-        <a href="panier.php"><img class = 'logopanier' src="images-boutique/panier.png"></a>
+    <a href="panier.php"><img class = 'logopanier' src="images-boutique/panier.png"></a>
 </header>

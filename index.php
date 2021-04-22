@@ -1,13 +1,6 @@
     <?php include 'header.php';?>
         <main>
-            <div class="iphone-red">
-                <div class="arrivage">
-                    <h1 class="titre-acceuil-1">
-                        iPhone 12 Arrivage
-                    </h1>
-                    <button class="butt-acceuil-1">En profiter</button>
-                </div>
-            </div>
+        <?php $user->produit_phare_affiche(); ?>
             <section class='caserouge-index'>
                 <div class='titrecaserouge-index'>
                     Nos derniers produits
@@ -65,14 +58,14 @@
                 Catégories
             </h5>
             <div class="catégories">
-                <a href="">
+                <a href="produit.php?id=45">
                     <div class="catégorie">
                         <p class="cat-tipo">
                             iPhones
                         </p>
                     </div>
                 </a>
-                <a href="">
+                <a href="produit.php?id=46">
                     <div class="catégorie1">
                         <p class="cat-tipo">
                             iPad
@@ -81,7 +74,7 @@
                 </a>
             </div>
             <div class="catégories1">
-                <a href="">
+                <a href="produit.php?id=47">
                     <div class="catégorie2">
                         <p class="cat-tipo1">
                             Accessoires

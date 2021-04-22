@@ -1,9 +1,13 @@
+
 <?php include 'header.php';?>
 <?php $user->acces_connect(); ?>
 <?php
 require_once('vendor/autoload.php'); 
 $prix = $panier->total();
 
+if($prix <=0){
+    header("refresh: 3; url=index.php");
+}
 // j'instencie STRIPE
 
     \Stripe\Stripe::setApiKey('sk_test_51IhMI8BrNY4z7SFmqTURl3rzdvTYp2OYxl7UbllaftdCsUVATqSQvqVK1JLweIpJZkL6i51JjbQqmWtmzw3ClXMJ00FJtPao7C');
@@ -27,13 +31,13 @@ $prix = $panier->total();
                 </div>
                 <hr class="line-information">
                 <form method="POST" action="">
+                    <div id="errors"></div> <!-- contiendra les messages d'erreurs de paiements -->
+                    <div id="card-elements"></div> <!-- contiendra le formulaire de saisie des info de carte -->
+                    <div id="card-errors" role="alert"></div> <!-- contiendra les erreurs relative a la carte -->
                     <div class="input-align">
                         <label class="label4" for="card-holdername">Titulaire : </label>
                         <input id="card-holdername" class="input4-1" type='text' name='card-holdername' placeholder="    Titulaire">
                     </div> 
-                    <div id="errors"></div> <!-- contiendra les messages d'erreurs de paiements -->
-                        <div id="card-elements"></div> <!-- contiendra le formulaire de saisie des info de carte -->
-                    <div id="card-errors" role="alert"></div> <!-- contiendra les erreurs relative a la carte -->
                     <!-- <div class="input-align">
                         <label class="label5" for="crédit"> N° carte : </label>
                         <input class="input5" type='tel' name='crédit' inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" maxlength="19" placeholder="  xxxx xxxx xxxx xxxx">

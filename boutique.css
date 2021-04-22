@@ -373,6 +373,8 @@ footer {
     float: left;
     color: white;
     margin-top: 5px;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 5%;
 }
 
 .inptadmin {
@@ -506,8 +508,8 @@ footer {
 .form_add_categorie2 {
     background-color: #000000da;
     padding: 20px;
-    height: 50px;
-    width: 450px;
+    height: 80px;
+    width: 500px;
     border-radius: 20px;
     border: 1px solid white;
     box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.377);
@@ -630,7 +632,17 @@ footer {
     color: #F7EBE8;
 }
 
+.scrollbar {
+    height: 400px;
+    overflow-y: scroll;
+    scrollbar-color: rebeccapurple green;
+    scrollbar-width: thin;
+    overflow: scroll;
+}
+
 .tableau2 {
+    margin-top: 50px;
+    margin-bottom: 200px;
     table-layout: fixed;
     border: 1px solid #050505;
     border-collapse: collapse;
@@ -676,16 +688,6 @@ footer {
     border: 1px solid #050505;
     width: 250px;
     padding: 5px;
-    text-align: center;
-    color: #050505;
-    font-weight: bold;
-    background-color: #e4e4e4;
-}
-
-.tdgrand2 {
-    border: 1px solid #050505;
-    width: 250px;
-    padding: 10px;
     text-align: center;
     color: #050505;
     font-weight: bold;
@@ -1177,7 +1179,7 @@ ul {
 .iphone-red {
     height: 500px;
     border: 1px solid white;
-    background-image: url(images-boutique/iphone-red.png);
+    /* background-image: url(images-boutique/iphone-red.png); */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -1208,6 +1210,7 @@ ul {
     font-weight: bold;
     font-size: 27px;
     color: white;
+    text-shadow: 0.5px 0.5px 0.5px black;
 }
 
 .butt-acceuil-1 {
@@ -1243,6 +1246,7 @@ ul {
     font-family: 'Poppins', sans-serif;
     color: white;
     text-align: center;
+    background-color: black;
 }
 
 .produit-phare {
@@ -1260,6 +1264,7 @@ ul {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     opacity: 0.98;
+    transition: 0.35s;
 }
 
 .produit-phare2:hover {
@@ -1269,7 +1274,6 @@ ul {
     -moz-filter: brightness(25%);
     -o-filter: brightness(25%);
     -ms-filter: brightness(25%);
-    transition: 0.75s;
 }
 
 .bienvenue {

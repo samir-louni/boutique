@@ -72,14 +72,18 @@ public $_lastinsertid;
 
     public function paiementaccepter(){
         $db = $this->_db;
-        $id_commande = $this->_lastinsertid; 
-        $requete2 = "UPDATE `detailcommande` SET `id_payer`= 1 WHERE id_commande = $id_commande";
-        $db->query($requete2);
+        $query = $db->prepare("SELECT MAX(id) FROM commande");
+        $query->execute();
+        $resultat = $query->fetchAll();
+        foreach ($resultat as $key){
+            $requete = "UPDATE `detailcommande` SET `id_payer`= 1 WHERE id_commande = $key[0]";
+            $db->query($requete);
+        }
     }
 
     public function affichercommandepass(){
         $db = $this->_db;
-        $requete = $db->prepare("SELECT * FROM detailcommande INNER JOIN commande on detailcommande.id_commande = commande.id INNER JOIN article on detailcommande.id_produit = article.id_article INNER JOIN utilisateurs on commande.id_utilisateur = utilisateurs.id");
+        $requete = $db->prepare("SELECT * FROM detailcommande INNER JOIN commande on detailcommande.id_commande = commande.id INNER JOIN article on detailcommande.id_produit = article.id_article INNER JOIN utilisateurs on commande.id_utilisateur = utilisateurs.id ORDER BY detailcommande.id DESC");
         $requete->execute();
         $resultat = $requete->fetchall();
         
@@ -129,7 +133,5 @@ public $_lastinsertid;
     //     }
     // }
 
-
-   
 }
 ?>

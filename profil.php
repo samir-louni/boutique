@@ -1,3 +1,5 @@
+
+
 <?php include 'header.php';?>
 <?php $user->acces_connect(); ?>
 <section class = 'caserouge'>
@@ -48,6 +50,7 @@
             </form>
         </section>
     </section>
+    <?php include 'commande.php'; ?>
     <?php include 'footer.php';?>
 </body>
 </html>

@@ -1,5 +1,4 @@
 <?php include 'header.php';?>
-<?php $user->acces_connect(); ?>
 <?php 
 if(isset($_GET['del'])){
     $panier->del($_GET['del']);
@@ -8,7 +7,7 @@ if(isset($_GET['del'])){
 <main>
 <section class = 'caserouge'>
 <div class = 'caserougepanier'>
-    Mon panier 
+    Mon panier
 </div>
 <hr class="line-case">
 </section>
@@ -65,8 +64,8 @@ if(isset($_GET['del'])){
                             for ($i=0; $i < 1; $i++) { 
                                 $panier->finaliserCommandedetail($key, $value);
                             }
-                        } 
-                        header("location:paiement.php");   
+                        }
+                        header("location:paiement.php");
                     }else{
                         echo"<script language=\"javascript\">";
                         echo"alert('remplissez tout les champs')";
@@ -119,7 +118,6 @@ if(isset($_GET['del'])){
             ?>
         </form>
     </section>
-    <?php include 'commande.php'; ?>
 </main>
 <?php include 'footer.php'; ?>
 </body>
