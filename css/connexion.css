@@ -1,0 +1,265 @@
+.caseconnexioninscription {
+    display: flex;
+    justify-content: center;
+    margin: 7%;
+}
+
+ .image_inscription
+{
+    height: 45px;
+    width: 100%;
+    background-color: #79363993;
+}
+
+.caseconnexionbase
+{
+    height: 320px;
+    width: 330px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px ;
+    border: 1px solid white;
+    background-color: #000000da;
+    padding: 20px;
+    
+}
+
+.caseinscriptionbase
+{
+
+    width: 530px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px ;
+    border: 1px solid white;
+    box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.377);
+}
+
+.caseinscriptionbase p 
+{
+    text-align: center;
+    font-weight: 600;
+    text-decoration: underline;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 5%;
+}
+
+.caseinscription {
+    background-color: #000000da;
+    padding: 20px;
+    padding-bottom: 0px;
+    color: white; 
+}
+
+.caseinscription button
+{
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 10%;
+}
+
+.caseinscription form
+{
+    
+    text-align: center;
+    padding: 25px;
+}
+
+.caseinscription input
+{
+    background-color: transparent; 
+    border: none;
+    border-bottom: 1px solid white;
+    height: 30px;
+    width: 170px;
+    margin-top: 14px;
+    margin-bottom: 14px;
+    margin-left: 14px;
+    margin-right: 14px;
+    color: white;
+    outline: none;
+    font-size: 17px;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+
+.image_inscription
+{
+    height: 55px;
+    background-color: rgba(0, 0, 0, 0.253);   
+    width: 100%;
+}
+
+
+
+.inptprix {
+    float: center;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.377);
+    background-color: rgba(190, 190, 190, 0.397);
+    font-weight: bold;
+    height: 25px;
+    width: 40px;
+}
+
+.lblprix {
+    display: block;
+    width: 150px;
+    margin-top: 5px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.titreconnexioninscription {
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 17px;
+    margin-left: 5%;
+}
+
+.buttonconnexion {
+    background-color: #E54B4B;
+    font-weight: bolder;
+    margin-left: 40%;
+    margin-top: 10px;
+    border-radius: 10px;
+    transition: 0.30s;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}
+
+.buttonconnexion:hover {
+    border-radius: 21px;
+    background-color: #FFA987;
+    font-weight: bolder;
+}
+
+.caseerreur {
+    color: black;
+    size: 25px;
+    text-align: center;
+    margin-top: 2%;
+    font-family: 'Poppins', sans-serif;
+}
+
+.centrer {
+    display: flex;
+    justify-content: center;
+    margin: 7%;
+}
+
+#form_connexion input
+{
+    width: 270px;
+}
+
+#form_inscription
+{
+    display: none;
+}
+
+.button_center
+{
+    display: flex;
+    justify-content: center;
+}
+/*       */ 
+
+
+
+
+/* .connexion-show
+{
+    display: none;
+}
+
+.centrer-connexion
+{
+display: flex;
+justify-content: center;
+margin-top: 10%;
+} */
+ 
+
+/* .case-connexion
+{
+    border: 1px solid black;
+    height: 500px;
+    width: 600px;
+    display: flex;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition : 0.2s;
+}
+
+.image-connexion
+{
+    /* background-image: url(/images/connexion.jpg); 
+    width: 150px;
+    height: 100%;
+    border-right: 1px solid black;
+}
+
+.formulaire-connexion
+{
+    width: 450px;
+    height: 100%;
+    background-color : #7A0000;
+    text-align: center;
+    transition : 0.2s;
+    
+}
+
+.formulaire-connexion h1
+{
+    margin-top: 35px;
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.formulaire-connexion input
+{
+    height: 40px;
+    width: 250px;
+    margin-top: 15px;
+    background-color: transparent;
+    border:none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.781);
+    outline: none;
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.911);
+    transition: 0.2s;
+    font-weight: 800;
+}
+
+.formulaire-connexion input:focus
+{
+    box-shadow: rgba(255, 255, 255, 0.349) 0px 1px 1px, rgba(255, 255, 255, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+}
+
+
+.formulaire-connexion button
+{
+    margin-top: 50px;
+    border: white;
+    background-color: rgb(255, 255, 255);
+    width: 160px;
+    height: 30px;
+    margin-left: 3px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    font-weight: 800;
+}
+
+ .contenu-formulaire p 
+{
+    margin-top: 78px;
+    text-decoration : underline;
+    cursor: pointer;
+} 
+
+
+
+.contenu-formulaire 
+{
+    padding: 20px;
+    margin-top: 20%;
+} */
+

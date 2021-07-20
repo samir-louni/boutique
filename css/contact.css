@@ -1,0 +1,257 @@
+
+.contact1 {
+    height: 500px;
+    border: 1px solid white;
+    background-image: url(../images-boutique/contactus.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: flex-end;
+    filter: brightness(75%);
+    -webkit-filter: brightness(75%);
+    -moz-filter: brightness(75%);
+    -o-filter: brightness(75%);
+    -ms-filter: brightness(75%);
+    transition: 0.75s;
+}
+
+.contact1:hover {
+    filter: brightness(110%);
+    -webkit-filter: brightness(110%);
+    -moz-filter: brightness(110%);
+    -o-filter: brightness(110%);
+    -ms-filter: brightness(110%);
+}
+
+.titre-contact {
+    padding-top: 220px;
+    padding-right: 130px;
+    padding-bottom: 10px;
+    width: 620px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+    font-size: 60px;
+    color: white;
+    transition: 0.5s;
+}
+
+.sous-ligne-titre1 {
+    margin-left: 50px;
+    width: 900px;
+}
+
+.titre-contact:hover {
+    font-size: 62px;
+}
+
+#title-Tag-Line {
+    font-size: 20px;
+}
+
+
+/* form animation starts */
+
+.form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+}
+
+.wrapper {
+    /* display: flex;
+    justify-content: flex-start; */
+    margin-left: 50px;
+}
+
+::-webkit-input-placeholder {
+    font-size: 1.3em;
+}
+
+.title {
+    display: block;
+    font-family: 'Press Start 2P', cursive;
+    color: white;
+    margin: 30px auto 5px;
+    width: 300px;
+}
+
+.termsConditions {
+    margin: 0 auto 5px 80px;
+}
+
+.pageTitle {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.name {
+    background-color: white;
+    opacity: 60%;
+    color: black;
+    transition: ease 0.5s;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    height: 2em;
+}
+
+.name:hover {
+    opacity: 100%;
+    background-color: white;
+    color: black;
+    height: 4em;
+}
+
+.email {
+    color: white;
+    background-color: white;
+    opacity: 60%;
+    height: 2em;
+    transition: ease 0.5s;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+}
+
+.email:hover {
+    opacity: 100%;
+    background-color: white;
+    color: black;
+    height: 4em;
+}
+
+.message {
+    color: white;
+    background-color: white;
+    opacity: 60%;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    overflow: hidden;
+    height: 10rem;
+    width: 600px;
+    transition: ease 0.5s;
+}
+
+.message:hover {
+    opacity: 100%;
+    background-color: white;
+    color: black;
+    height: 11rem;
+}
+
+.formEntry {
+    display: block;
+    margin: 30px auto;
+    min-width: 300px;
+    padding: 10px;
+    border-radius: 2px;
+    border: none;
+    transition: all 0.5s ease 0s;
+}
+
+.submit {
+    width: 200px;
+    color: white;
+    background-color: #E54B4B;
+    font-size: 20px;
+    transition: 0.5s;
+}
+
+.submit:hover {
+    box-shadow: 15px 15px 15px 5px WHITE (0.219);
+    transform: translateY(-3px);
+    width: 300px;
+    border: 1px solid rgba(255, 255, 255, 0.336);
+    transition-duration: 0.5s;
+    background-color: #FFA987;
+    border-radius: 0%;
+}
+
+.titrecasenoir {
+    padding-left: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    color: #F7EBE8;
+    font-size: 35px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+}
+
+.caserouge-contact {
+    padding: 30px;
+    background-image: url(images-boutique/degrader.png);
+}
+
+.titrecaserouge-contact {
+    color: #F7EBE8;
+    font-size: 50PX;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+}
+
+.coordonnées {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+
+.coordonnées-séparation {
+    width: 2px;
+    height: 400px;
+    background-color: black;
+    margin-bottom: 100px;
+    margin-right: -130px;
+}
+
+.coordonnées-gauche {
+    color: black;
+    font-size: 35px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+    margin-left: -50px;
+}
+
+.adresses {
+    color: black;
+    font-size: 25px;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 250px;
+}
+
+.coordonnées-droite {
+    color: black;
+    font-size: 40px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+    margin-right: 250px;
+    padding-left: -400px;
+}
+
+.adresses {
+    color: black;
+    font-size: 30px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.numéro {
+    margin-top: 50px;
+    font-size: 60px;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+/**** PAGE PRODUIT ***/
+
+.centrer_produit {
+    display: flex;
+    justify-content: center;
+}
+
+.size_picture {
+    height: 250px;
+    width: 250px;
+}
+
+.case_produit {
+    border: 2px solid black;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.418);
+}

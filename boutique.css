@@ -112,7 +112,7 @@ footer {
 
 .caserouge {
     padding: 30px;
-    background-image: url(images-boutique/degrader.png);
+    background-image: url(.../images-boutique/degrader.png);
 }
 
 .casenoire {
@@ -1151,7 +1151,7 @@ ul {
 /* //////////////////////////////////////////////////////////////////////////////////////////////// */
 
 .sous-ligne-titre {
-    width: 900px;
+    width: 80%;
 }
 
 .nom_produit_recent {
@@ -1173,7 +1173,7 @@ ul {
     border: 1px solid white;
     padding: 30px;
     background-image: url(images-boutique/degrader.png);
-    height: 590px;
+    
 }
 
 .iphone-red {
@@ -1541,6 +1541,10 @@ ul {
     width: 200px;
     border: 2px solid white;
     border-radius: 100px;
+    -webkit-filter: brightness(75%);
+    -moz-filter: brightness(75%);
+    -o-filter: brightness(75%);
+    -ms-filter: brightness(75%);
     transition: 0.5s;
 }
 
@@ -2173,3 +2177,46 @@ ul {
     font-family: 'Poppins', sans-serif;
     font-weight: bolder;
 }
+
+
+
+
+/* MEDIA QUERIS */ 
+
+
+@media screen and (max-width: 1223px) {
+
+    .produit-phare {
+       
+        width: 300px;
+        height: 330px;
+    }
+
+    .produit-phare2 {
+
+        width: 300px;
+        height: 300px;
+
+    }
+    
+  } 
+  
+
+
+
+  @media screen and (max-width: 700px) {
+
+.bloc-phare{
+    flex-direction: column;
+
+}
+
+.produit-phare
+{
+    margin: 10px;
+}
+    
+  } 
+  
+
+

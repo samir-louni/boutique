@@ -1,0 +1,50 @@
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+}
+
+.footerbande {
+    height: 30px;
+    background-color: #1e1e24da;
+    color: #F7EBE8;
+    display: flex;
+    justify-content: space-around;
+    padding: 3px;
+}
+
+.contact {
+    margin-top: 5px;
+}
+
+.copyright {
+    color: #F7EBE8;
+}
+
+.divcopyright {
+    background-color: #1E1E24;
+    text-align: center;
+    padding: 20px;
+}
+
+
+/*Carrer rouge */
+
+.caserouge {
+    padding: 30px;
+    background-image: url(../images-boutique/degrader.png);
+}
+
+.casenoire {
+    padding: 15px;
+    background-color: #1E1E24;
+}
+
+.titrecaserouge {
+    color: #F7EBE8;
+    font-size: 20PX;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+}

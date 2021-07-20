@@ -21,11 +21,12 @@
                 <th class ='th2'><p class="detailcommande">Nom article<p></th>
                 <th class ='th2'><p class="detailcommande">Produit<p></th>
                 <th class ='th2'><p class="detailcommande">Date<p></th>
+                <th class ='th2'><p class="detailcommande">Expédié<p></th>
             </tr>
         </thead>
         <tbody>
             <?php
-                $user->mes_commandes();
+                $affichage->mes_commandes();
             ?>
         </tbody>
     </table>

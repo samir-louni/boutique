@@ -1,0 +1,133 @@
+.img_panier {
+    border: 1px solid rgba(82, 82, 82, 0.288);
+    border-radius: 10px;
+    transition: 0.5s;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.479);
+    height: 130px;
+    width: 130px;
+}
+
+.img_panier2 {
+    border: 1px solid rgba(82, 82, 82, 0.288);
+    border-radius: 10px;
+    transition: 0.5s;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.479);
+    height: 110px;
+    width: 110px;
+}
+
+.caserougepanier {
+    color: #F7EBE8;
+    font-size: 45PX;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+    padding-left: 50px;
+}
+
+.caserougepanier {
+    color: #F7EBE8;
+    font-size: 45PX;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+    padding-left: 50px;
+}
+
+.line-case {
+    width: 1825px;
+}
+
+.tab-skill {
+    display: flex;
+    justify-content: center;
+    padding-top: 150px;
+}
+
+.th2 {
+    width: 550px;
+    height: 50px;
+    background-color: black;
+    border: 1px solid black;
+}
+
+.th4 {
+    width: 200px;
+    height: 50px;
+    background-color: black;
+    border: 1px solid black;
+}
+
+.th5 {
+    width: 100px;
+    height: 50px;
+    background-color: black;
+    border: 1px solid black;
+}
+
+.nom-thead {
+    font-family: 'Poppins', sans-serif;
+    font-size: 25px;
+    color: white;
+    font-weight: bolder;
+}
+
+.td4 {
+    width: 200px;
+    height: 175px;
+    background-color: #C4C4C4;
+    border: 1px solid black;
+}
+
+.td5 {
+    width: 100px;
+    height: 175px;
+    background-color: #C4C4C4;
+    border: 1px solid black;
+}
+
+.td2 {
+    width: 550px;
+    height: 175px;
+    background-color: #C4C4C4;
+    border: 1px solid black;
+}
+
+.th3 {
+    width: 200px;
+    height: 50px;
+    background-color: black;
+    border: 1px solid black;
+}
+
+.bas-panier {
+    padding-top: 150px;
+    padding-bottom: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.total-price {
+    /* margin-left: -150px; */
+    margin-right: 700px;
+}
+
+.butt-valider-commande {
+    width: 250px;
+    height: 35px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    color: white;
+    background-color: #E54B4B;
+    border: 1px solid black;
+    border-radius: 20px;
+    transition: 0.25s;
+}
+
+.butt-valider-commande:hover {
+    width: 255px;
+    height: 40px;
+    font-size: 20px;
+    border-radius: 21px;
+    background-color: #FFA987;
+    border: 2px solid black;
+}

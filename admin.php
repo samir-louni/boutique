@@ -6,6 +6,7 @@ $db = new PDO("mysql:host=localhost; dbname=boutique", 'root', '');
 $requete = $db->prepare('SELECT id, nom_categorie FROM categorie WHERE 1');
 $requete->execute();
 $resultat = $requete->fetchall();
+
 $requete2 = $db->prepare('SELECT * FROM article WHERE 1 ORDER BY nom_article ASC');
 $requete2->execute();
 $resultat2 = $requete2->fetchall();
@@ -13,267 +14,235 @@ $resultat2 = $requete2->fetchall();
 $requete3 = $db->prepare('SELECT * FROM article');
 $requete3->execute();
 $resultat3 = $requete3->fetchall();
-
-
 ?>
+
 <section class='caserouge'>
-    <div class='titrecaserouge'>
-        Admin
-    </div>
-    <hr>
+  <div class='titrecaserouge'>Admin</div>
+  <hr>
 </section>
-<section class='casenoire'>
-    <div class='titrecaserouge'>
-        Ajouter un article
+<div class="select_admin">
+  <p id='add_article_js'>Ajouter un article</p>
+  <p id='prix'>Modifier le prix d'un article</p>
+  <p id='delete_button'>Supprimer un article</p>
+  <p id='categorie_js'>Catégories</p>
+  <p id='gerer_js'>Gerer les droits</p>
+  <p id='phare'>Changer d'article phare</p>
+  <a href='admincommande.php'>
+    <p id='commande'>Commandes</p>
+  </a>
+</div>
+<script>
+  $('#prix').click(function(){
+      $('#modification_prix').slideDown(1000)
+  })
+</script>
+<section class="centrer_element">
+  <section class='add_article' id='add_article_vue'>
+    <form action='' method='post'>
+      <input class='upload-box' type='file' accept="image/png, image/jpeg" id='image_article' placeholder='Images'>
+      <br>
+      <input type='text' id='nomarticle' placeholder='NOM'>
+      <br>
+      <input type='number' id='prixarticle' placeholder='PRIX'>
+      <br>
+      <textarea id="descriptionarticle" maxlenght="368" rows="5" cols="33" placeholder='DESCRIPTION'>DESCRIPTION</textarea>
+      <br>
+      <select id='selection' placeholder='CATEGORIE'>
+        <?php foreach ($resultat as $key) {
+            $id=$key[ 'id']; $nom=$key[ 'nom_categorie']; echo "<option value='$id'>$nom</option>";
+            } ?>
+      </select>
+      <br>
+    </form>
+    <div class="buttonalign">
+      <button type='submit' id='ajout_article'>Ajouter l'article</button>
     </div>
+  </section>
+  <script>
+  $('#ajout_article').click(function(){
+    ajouterarticleajax();
+    })
+  </script>
 </section>
-    <section class='centrer_element'>
-        <section class='casebase'>
-            <section class='add_article'>
-                <form action='' method='post'>
-                    <label class='lbladmin' for='imagearticle'>Images : </label>
-                    <input class='inptadmin3' type='file' name='imagearticle' accept="image/png, image/jpeg"><br>
-                    <label class='lbladmin' for='nomarticle' class='description'>Nom :</label>
-                    <input class='inptadmin' type='text' id='nomarticle' name='nomarticle'><br>
-                    <label for='prixarticle' class='lbladmin'>Prix € :</label>
-                    <input class='inptadmin2' type='number' id='prixarticle' name='prixarticle'> <br>
-                    <label class='lbladmin' for="descriptionarticle" class='description'>Description :</label>
-                    <textarea class='inptadmin' id="descriptionarticle" name="descriptionarticle" maxlenght="368" rows="5" cols="33">
-                    </textarea><br>
-                    <label for='categorie_select' class='lbladmin'>Catégories :</label>
-                    <select class='inptadmin' name="categorie">
-                        <?php
-                        foreach ($resultat as $key) {
-                        $id = $key['id'];
-                        $nom = $key['nom_categorie'];
-                        echo "<option value='$id'>$nom</option>";
-                        } ?>
-                    </select><br>
-            </section>
-                    <input type='submit' name='submit_add_article' value='Ajouter article' class='buttonadmin'>
-                </form>
-            <section class='caseerreur'>
-                <?php
-                if(isset($_POST['submit_add_article']))
-                {
-                $user->ajouterarticle($_POST['nomarticle'], $_POST['descriptionarticle'], $_POST['imagearticle'], $_POST['categorie'],$_POST['prixarticle']); 
-                }
-                ?>
-            </section>
-        </section>
-    </section>
-        <section class='casenoire'>
-            <div class='titrecaserouge'>
-                Ajouter une catégorie
-            </div>
-        </section>
-    <section class='centrer_element'>
-        <section class='casebase2'>
-            <div class='box1'>
-                <h3 class='titreconnexioninscription'> Ajouter catégorie</h3>
-                <section class='form_add_categorie'>
-                    <form action='' method='POST'>
-                        <label class='lbl3' for='addcategorie'>Nom de la catégorie :</label>
-                        <input class='inpt3' id='addcategorie' type='text' name='addcategorie'><br>
-                </section>
-                        <input type='submit' name='submit_add_categorie' value='Ajouter catégorie' class='buttonadmin'>
-                    </form>
-                <section class='caseerreur'>
-                    <?php
-                    if(isset($_POST['submit_add_categorie'])) 
-                    {
-                    $user->newcategorie($_POST['addcategorie']);
-                    }
-                    ?>
-                </section>
-            </div>
-        </section>
-        <div class='box2'>
-            <h3 class='titreconnexioninscription'> Supprimer catégorie</h3>
-            <section class='form_add_categorie'>
-                <form action='' method='post'>
-                    <label for='categorie_select' class='lbladmin'>Nom de la catégories :</label>
-                    <select class='inptadmin' name="categorie2">
-                        <?php
-                            foreach ($resultat as $key){
-                                $id = $key['id'];
-                                $nom = $key['nom_categorie'];
-                                echo "<option value='$id'>$nom</option>";
-                            }
-                        ?>
-                    </select><br>
-            </section>
-                <input type='submit' name='delete_categorie' value='Supprimer la catégories' class='buttonadmin'>
-                <input type='submit' name='delete_categorie_article' value='Supprimer la catégories et ses articles' class='buttonadmin3'>
-            </form>
+
+<section class="centrer_element">
+  <section class="categorie_liste" id='categorie_liste'>
+    <div class='box1'>
+      <h3 class='titreconnexioninscription2'>Ajouter catégorie</h3>
+      <section class='form_add_categorie'>
+        <form action='' method='POST'>
+          <input type='text' id='name_categorie' placeholder='NOM DE LA CATEGORIE'>
+          <br>
+        </form>
+        <div class="buttonalign">
+          <button id='add_categorie'>Ajouter</button>
         </div>
-        <section class='caseerreur'>
-            <?php 
-            if(isset($_POST['delete_categorie_article'])){       
-            $user->delete_categorie_and_article($_POST['categorie2']);
-            echo "La catégorie ainsi que ses articles ont bien été supprimer";
-            }
-                if(isset($_POST['delete_categorie'])){       
-                $user->delete_categorie($_POST['categorie2']);
-                echo "La catégorie a bien été supprimer";
-                }
-            ?>
-        </section>
+    </div class='box1'>
+    <script>
+  $('#add_categorie').click(function(){
+                          addcat();
+                      })
+    </script>
+    </div>
+    <script src='javascript/style.js'></script>
+    <script src='javascript/fonction.js'></script>
+    <div class='box2'>
+      <h3 class='titreconnexioninscription2'>Supprimer catégorie</h3>
+      <section class='form_add_categorie'>
+        <form action='' method='post'>
+          <div id='liste_categorie'>
+          </div>
+    </div class='box1'>
     </section>
-    <section class='casenoire'>
-        <div class='titrecaserouge'>
-            Supprimer un article
-        </div>
+    <script>
+  afficher_categorie();
+    </script>
     </section>
-        <section class = 'center_table'>
-                <table class = 'tableau1'>
-                    <thead>
-                        <tr>
-                            <th class = 'th1'><h3>ID<h3></th>
-                            <th class = 'th1'><h3>nom de l'article<h3></th>
-                            <th class = 'th1'><h3>Prix<h3></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php 
-                            $user->afficherbaseproduit()
-                        ?>
-                    </tbody>
-                </table>
-            </section>
-    <section class='centrer_element'>
-        <section class='casebase3'>
-            <section class='form_add_categorie'>
-                <form action='' method='post'>
-                    <label class='lbl3' for='supp_article'>ID de l'article :</label>
-                    <select class='inptadmin' name="supp_article">
-                        <?php
-                            foreach ($resultat2 as $key2) {
-                            $id2 = $key2['id_article'];
-                            $nom2 = $key2['nom_article'];
-                            echo "<option value='$id2'>$id2</option>";
-                            }
-                        ?>
-                    </select><br>
-            </section>
-                <?php 
-                    if(isset($_POST['delete_article'])){
-                        $user->delete_article($_POST['supp_article']);
-                    }
-                ?>
-                    <input type='submit' name='delete_article' value='Supprimer' class='buttonadmin'>
-                </form>
-        </section>
+  </section>
+  </div>
+</section>
+    <section class="centrer_element">
+  <section class='center_table' id='table_supp'>
+    <table class='tableau1'>
+      <thead>
+        <tr>
+          <th class='th1'>
+            <h3>nom de l'article
+              <h3>
+          </th>
+          <th class='th1'>
+            <h3>Prix
+              <h3>
+          </th>
+          <th class='th1'>
+            <h3>Supprimer
+              <h3>
+          </th>
+        </tr>
+      </thead>
+      <tbody id='tableau'>
+        <script>
+  afficher_article_tableau();
+        </script>
+      </tbody>
+    </table>
+  </section>
+</section>
+<section class='changer_droit_affiche' id='changer_droit_affiche'>
+  <section class='center_table'>
+    <table class='tableau1'>
+      <thead>
+        <tr>
+          <th class='th1'>
+            <h3>ID
+              <h3>
+          </th>
+          <th class='th1'>
+            <h3>Login
+              <h3>
+          </th>
+          <th class='th1'>
+            <h3>Accès
+              <h3>
+          </th>
+        </tr>
+      </thead>
+      <tbody id='tableau-user'>
+        <script>
+  afficher_utilisateurs();
+        </script>
+      </tbody>
+    </table>
+  </section>
+  <section class="centrer_element">
+    <form action="" method="POST">
+      <section class='form_droit' id='form_droit'>
+        <p class='formulairep'>Droit</p>
+        <select name="changementdroit" id="changementdroit">
+          <option id='iddroit' value="1">Membres</option>
+          <option id='iddroit' value="2">Modérateur</option>
+          <option id='iddroit' value="3">Admin</option>
+        </select>
+        <br>
+        <p class='formulairep'>Id de l'utilisateur</p>
+        <br>
+        <input type='number' id='iduser' placeholder='ID '>
+        <br>
+        <div class="buttonalign">
+    </form>
+    <button id='button_droit'>Modifier les droits</button>
+    </div>
     </section>
-    <section class = 'casenoire'>
-        <div class = 'titrecaserouge'>
-            Liste des utilisateurs
-        </div>
-    </section>
-        <section class = 'center_table'>
-            <table class = 'tableau1'>
-                <thead>
-                    <tr>
-                        <th class = 'th1'><h3>ID<h3></th>
-                        <th class = 'th1'><h3>Login<h3></th>
-                        <th class = 'th1'><h3>Accès<h3></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                        $user->afficherbasededonner()
-                    ?>
-                </tbody>
-            </table>
-        </section>
-    <section class = 'centrer_element'>
-        <section class = 'casebase'>
-            <h3 class = 'titreconnexioninscription'> Gerer les droits </h3>
-                <form action="" method="POST" >
-                    <section class = 'form_droit'>
-                        <label class='lbl3' for="changementdroit" >Droit</label>
-                        <select class ='select2' name="changementdroit" id="changementdroit" >
-                            <option value="1" >Membres</option>
-                            <option value="2">Modérateur</option>
-                            <option value="3">Admin</option>
-                        </select><br>
-                        <label  class='lbl4' for="changement">Id de l'utilisateur</label><br>
-                        <input type ='number' id = 'changement' name = 'changement' class='inpt4' ><br>
-                    </section>
-                    <div class = 'msg_centrer'>
-                        <?php
-                            if(isset($_POST['validerlechangement'])){
-                            $user->changementdedroit($_POST['changementdroit'], $_POST['changement']);
-                            }
-                        ?>
-                    </div>
-                        <input type ='submit' id='validerlechangement' name = 'validerlechangement' value='Changer droit' class = 'buttonadmin3'>
-                </form>
-        </section>
-    </section>
-    <section class = 'casenoire'>
-        <div class = 'titrecaserouge'>
-            Liste des commandes
-        </div>
-    </section>
-        <table class = 'tableau2'>
-            <thead>
-                <tr>
-                    <th class = 'th2'><p class="detailcommande">payer 0/1<p></th>
-                    <th class = 'th2'><p class="detailcommande">N° Commande<p></th>
-                    <th class = 'th2'><p class="detailcommande">Quantité<p></th>
-                    <th class = 'th2'><p class="detailcommande">prix total<p></th>
-                    <th class = 'th2'><p class="detailcommande">Nom<p></th>
-                    <th class = 'th2'><p class="detailcommande">Prénom<p></th>
-                    <th class = 'th2'><p class="detailcommande">Pays<p></th>
-                    <th class = 'th2'><p class="detailcommande">Ville<p></th>
-                    <th class = 'th2'><p class="detailcommande">C-P<p></th>
-                    <th class = 'th2'><p class="detailcommande">tèl<p></th>
-                    <th class = 'th2'><p class="detailcommande">adresse<p></th>
-                    <th class = 'th2'><p class="detailcommande">e-mail<p></th>
-                    <th class = 'th2'><p class="detailcommande">nom article<p></th>
-                    <th class = 'th2'><p class="detailcommande">login user<p></th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                $panier->affichercommandepass();
-                ?>
-            </tbody>
-        </table>
+    <div class='msg_centrer'>
+    </div>
+    <script>
+    changer_droit();
+    </script>
+  </section>
+</section>
 
        
-                    <section class='casenoire'>
-    <div class='titrecaserouge'>
-        Changer l'article phare
+<?php $admin->affichercommandepass(); ?>
+<script>
+  $('#commande').click(function(){
+      ('#tablo').slideDown(1000)
+  })
+</script>
+<section class="centrer_element">
+  <section class='add_article' id='add_phare'>
+    <form action='' method='post'>
+      <label for='article_select' class='lbladmin'>Article :</label>
+      <select name="article_select" id='articlenom'>
+        <?php foreach ($resultat3 as $key3) { $id3=$key3[ 'id_article']; $nom3=$key3[ 'nom_article']; echo "<option value='$id3'>$nom3</option>";} ?>
+      </select>
+      <br>
+      <label class='lbladmin' for='textaffiche' class='description'>Nom :</label>
+      <input type='text' id='textaffiche' placeholder='TEXTE A AFFICHER'>
+      <br>
+      <label class='lbladmin' for='imagearticles2'>Images :</label>
+      <input class='upload-box' type='file' id='imagearticle2' accept="image/png, image/jpeg">
+      <br>
+    </form>
+    <div class="buttonalign">
+      <button id="changer_article_phare">CHANGER D'ARTICLE</button>
     </div>
+  </section>
 </section>
-    <section class='centrer_element'>
-        <section class='casebase'>
-            <section class='add_article'>
-                <form action='' method='post'>
-                <label for='article_select' class='lbladmin'>Article :</label>
-                    <select class='inptadmin' name="article_select">
-                        <?php
-                        foreach ($resultat3 as $key3) {
-                        $id3 = $key3['id_article'];
-                        $nom3 = $key3['nom_article'];
-                        echo "<option value='$id3'>$nom3</option>";
-                        } ?>
-                    </select><br>
-                    <label class='lbladmin' for='textaffiche' class='description'>Nom :</label>
-                    <input class='inptadmin' type='text' id='textaffiche' name='textaffiche'><br>
-                    <label class='lbladmin' for='imagearticles2'>Images : </label>
-                    <input class='inptadmin3' type='file' name='imagearticle2' accept="image/png, image/jpeg"><br>
-                    <input type ='submit' id='produit_phare' name = 'produit_phare' value='Changer' class = 'buttonadmin3'>
-                    <?php if(isset($_POST['produit_phare'])){
-                        $user->produit_phare($_POST['article_select'], $_POST['imagearticle2'], $_POST['textaffiche']);
-                    }
-                    ?>
-                 </form>
-            </section>
-        </section>
+<script>
+  $('#changer_article_phare').click(function(){
+  articlephare();
+  })
+</script>
+<section class="centrer_element">
+  <section class='casebase2'>
+    <section class='add_article' id='modification_prix'>
+      <form action='' method='post'>
+        <label for='article_select2' class='lbladmin'>Article :</label>
+        <select name="article_select2" id='article_select'>
+          <script>
+  affiche_prix();
+          </script>
+        </select>
+        <br>
+        <label class='lbladmin' for='textaffiche' class='description'>Nouveau prix :</label>
+        <input type='number' id='new_prix'>€
+        <br>
+      </form>
+      <div class="buttonalign">
+        <button id="button_prix">CHANGER LE PRIX</button>
+      </div>
+      <script>
+  modifier_prix();
+      </script>
     </section>
-<?php include 'footer.php'?>
+  </section>
+</section>
+</section>
+</section>
+<div class="footermarge">
+  <?php include 'footer.php'?>
+</div>
 </body>
 </html>
+
+

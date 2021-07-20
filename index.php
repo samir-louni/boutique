@@ -1,13 +1,14 @@
     <?php include 'header.php';?>
         <main>
-        <?php $user->produit_phare_affiche(); ?>
+        <?php $affichage->produit_phare_affiche(); ?>
             <section class='caserouge-index'>
                 <div class='titrecaserouge-index'>
                     Nos derniers produits
                 </div>
                 <hr class="sous-ligne-titre">
                 <section class="bloc-phare">
-                    <?php $user->dernier_produit(); ?>
+               
+                       <?php  $affichage->dernier_produit(); ?>  
                     </div>
                 </section>
             </section>

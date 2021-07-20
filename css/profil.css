@@ -1,0 +1,223 @@
+.centrer2 {
+    display: flex;
+    justify-content: space-around;
+    margin: 7%;
+}
+
+.caseprofil2 {
+    font-size: 20px;
+    width: 75%;
+    padding:20px;
+}
+
+.caseprofil
+{
+    display: flex;
+    justify-content: center;
+    background-color: #000000da;
+    height: 400px;
+    width: 580px;
+    border-radius: 5px;
+    box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.377);
+    border: 1px solid white;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+.gauche_liste
+{
+    width: 25%;
+    background-color: #1E1E24;
+    border-right: 1px solid rgba(255, 255, 255, 0.342);
+}
+
+
+
+.option-profil
+{
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.432); 
+    cursor: default;
+    transition: 0.15s;
+    color: white;
+}
+
+.option-profil a 
+{
+    text-decoration: none;
+    color: white;
+    cursor: default;
+}
+
+.option-profil:hover
+{
+    background-color: rgba(255, 255, 255, 0.466);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 3px;
+}
+
+.option-profil input 
+{
+    border: none;
+    cursor: default;
+    transition: 0.15s;
+    background-color: transparent;
+    font-size: 15px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+.input-back
+{
+    background-color: rgba(255, 255, 255, 0.466);
+}
+
+.modif-pass
+{
+    display : none;
+    text-align: center;
+}
+
+.modif-pass input 
+{
+    width: 180px;
+    background-color: transparent; 
+    border: none;
+    border-bottom: 1px solid white; 
+    color: white;
+    outline: none;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.caseprofil button
+{
+    background-color: rgba(255, 255, 255, 0.788);
+    border: none;
+    font-weight: 600;
+    
+    border-radius: 2px;
+    padding: 5px ;
+
+}
+
+/* #modif-mdp
+{
+    font-size: 14px;
+} */
+
+.indication {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+}
+
+.logouser2 {
+    width: 30px;
+    height: 30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.info {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+
+.formulaire {
+    margin-top: 18px;
+}
+
+.casemodif {
+    background-color: #000000da;
+    padding: 20px;
+    height: 160px;
+    border-radius: 20px;
+    border: 1px solid white;
+    box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.377);
+    color: white;
+}
+
+.modif-info
+{
+    display: none;
+    
+
+}
+
+.modif-info input
+{
+    float: right;
+    margin-right: 20%;
+    background-color: transparent; 
+    border: none;
+    border-bottom: 1px solid white; 
+    color: white;
+    outline: none;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+
+
+}
+
+input:focus
+{
+    transition: 0.2s;
+    box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.644)
+}
+
+
+#inscrivez-vous
+{
+    cursor: pointer;
+}
+
+#connectez-vous
+{
+    cursor: pointer;
+}
+
+
+.buttonprofil2 {
+    background-color: #E54B4B;
+    font-weight: bolder;
+    margin-left: 40%;
+    margin-top: 10px;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.397);
+    transition: 0.30s;
+    color: white;
+}
+
+.buttonprofil2:hover {
+    border-radius: 21px;
+    background-color: #FFA987;
+    font-weight: bolder;
+}
+
+
+/* MEDIA QUERIES */ 
+
+@media screen and (max-width: 570px) {
+
+    .caseprofil
+    {
+        font-size: 13px;
+    }
+
+    .caseprofil2
+    {
+        font-size: 16px;
+    }
+
+    .modif-info input
+    {
+        width: 140px;
+    }
+
+
+
+
+}

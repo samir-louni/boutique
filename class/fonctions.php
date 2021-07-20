@@ -197,16 +197,7 @@ public function modifpassword($ancienpass, $newpass, $newpassconfirm)
 
 
 
-public function acces_connect()
-{
-    if(!isset($_SESSION['login'])){
-    echo "<body><section class = 'add_panier_msg'><section class = 'case_add_panier'>Tu dois être connecté pour acceder a cette page <br> Redirection en cours ...</section></section>";
-    include 'footer.php';
-    echo '</body>';
-    header("refresh: 3; url=connexion.php");
-    exit;
-    }
-}
+
 
 
 
@@ -649,37 +640,18 @@ public function mes_commandes(){
 public function produit_phare($id_article, $image_phare, $text)
 {
     $db = $this->_db;
-    $requete =$db->prepare("INSERT INTO article_phare (`id_articles`, `image_phare`, `nom_article_phare`) VALUES ('$id_article', '$image_phare', '$text')");
+    $requete =$db->prepare("UPDATE `article_phare` SET `id_articles`='$id_article',`nom_article_phare`='$text',`image_phare`='$image_phare' WHERE id_phare = 1");
     $requete->execute();
 
 
 }
 
 
-public function produit_phare_affiche()
+
+public function modifier_prix($id, $prix)
 {
-
-$db = $this->_db;
-$requete =$db->prepare("SELECT * FROM article_phare  ORDER BY id_phare DESC LIMIT 1");
-$requete->execute();
-$resultat = $requete->fetchall();
-
-    foreach ($resultat as $key) {
-        $nom = $key['nom_article_phare'];
-        $image = $key['image_phare'];
-        $image_fin = "background-image:url('images-boutique/$image')";
-        $id = $key['id_articles'];
-
-        echo "<div class='iphone-red' style=$image_fin alt='Produit phare'>";
-            echo " <div class='arrivage'>
-                        <h1 class='titre-acceuil-1'>
-                            $nom
-                        </h1>
-                        <a href='produitselect.php?idproduct=$id'><button class='butt-acceuil-1'>En profiter</button></a>
-                    </div>
-               </div>";
-    } 
+    $db = $this->_db;
+    $query = $db->prepare("UPDATE article SET prix_article = '$prix' WHERE id_article = $id");
+    $query->execute();
 }
-
-
 }

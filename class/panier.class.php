@@ -3,6 +3,7 @@ class panier
 {
 public $_db;
 public $_lastinsertid;
+public $db;
 
     public function __construct(){
         if(!isset($_SESSION)){
@@ -14,8 +15,8 @@ public $_lastinsertid;
     }
 
     public function dbconnect(){
-    $db = new PDO("mysql:host=localhost; dbname=boutique", 'root', '');
-    $this->_db = $db;
+        $db = new PDO("mysql:host=localhost; dbname=boutique", 'root', '');
+        $this->_db = $db;
     }
 
     public function total(){
@@ -52,9 +53,10 @@ public $_lastinsertid;
     }
 
     public function finaliserCommande($_id_user, $_prix_total, $_nom, $_prenom, $_pays, $_ville, $_cp, $_tel, $_adresse, $_email){
+        $non ='NON';
         $db = $this->_db;
         $date_commande = date('Y/m/d');
-        $requete = "INSERT INTO commande (`id_utilisateur`, `prix_total`, `nom_commande`, `prenom_commande`, `pays`, `ville`, `cp`, `telephone`, `adresse`, `email_commande`, `date_commande`) VALUES ('$_id_user', '$_prix_total', '$_nom', '$_prenom', '$_pays', '$_ville', '$_cp', '$_tel', '$_adresse', '$_email', '$date_commande')";
+        $requete = "INSERT INTO commande (`id_utilisateur`, `prix_total`, `nom_commande`, `prenom_commande`, `pays`, `ville`, `cp`, `telephone`, `adresse`, `email_commande`, `date_commande`, `expedie`) VALUES ('$_id_user', '$_prix_total', '$_nom', '$_prenom', '$_pays', '$_ville', '$_cp', '$_tel', '$_adresse', '$_email', '$date_commande', '$non')";
         $db->query($requete);
         $this->_lastinsertid = $db->lastInsertId();
     }
@@ -66,7 +68,7 @@ public $_lastinsertid;
     public function finaliserCommandedetail($_id_produit, $_quantite){
         $db = $this->_db;
         $id_commande = $this->_lastinsertid; 
-        $requete2 = "INSERT INTO `detailcommande`(`id_commande`, `id_produit`, `quantite`, `id_payer`) VALUES ('$id_commande', '$_id_produit', '$_quantite', '0')";
+        $requete2 = "INSERT INTO `detailcommande`(`id_commande`, `id_produit`, `quantite`, `id_payer`) VALUES ('$id_commande', '$_id_produit', '$_quantite', '1')";
         $db->query($requete2);
     }
 
@@ -81,31 +83,32 @@ public $_lastinsertid;
         }
     }
 
-    public function affichercommandepass(){
-        $db = $this->_db;
-        $requete = $db->prepare("SELECT * FROM detailcommande INNER JOIN commande on detailcommande.id_commande = commande.id INNER JOIN article on detailcommande.id_produit = article.id_article INNER JOIN utilisateurs on commande.id_utilisateur = utilisateurs.id ORDER BY detailcommande.id DESC");
-        $requete->execute();
-        $resultat = $requete->fetchall();
+    // public function affichercommandepass(){
+    //     $db = $this->_db;
+    //     $requete2 = $ddb->prepare("SELECT * FROM detailcommande INNER JOIN commande on detailcommande.id_commande = commande.id INNER JOIN article on detailcommande.id_produit = article.id_article INNER JOIN utilisateurs on commande.id_utilisateur = utilisateurs.id ORDER BY detailcommande.id DESC");
+    //     $requete2->execute();
+    //     $resultat = $requete->fetchall();
         
-        foreach ($resultat as $key) {
-            echo "<tr>";
-            echo "<td class='tdpetit'>".$key['id_payer']."</td>";
-            echo "<td class='tdpetit'>".$key['id_commande']."</td>";
-            echo "<td class='tdpetit'>".$key['quantite']."</td>";
-            echo "<td class='tdmoyen'>".$key['prix_total']. '.OO €' ."</td>";
-            echo "<td class='tdpetit'>".$key['nom_commande']."</td>";
-            echo "<td class='tdpetit'>".$key['prenom_commande']."</td>";
-            echo "<td class='tdpetit'>".$key['pays']."</td>";
-            echo "<td class='tdpetit'>".$key['ville']."</td>";
-            echo "<td class='tdpetit'>".$key['cp']."</td>";
-            echo "<td class='tdpetit'>".$key['telephone']."</td>";
-            echo "<td class='tdgrand'>".$key['adresse']."</td>";
-            echo "<td class='tdgrand'>".$key['email_commande']."</td>";
-            echo "<td class='tdgrand'>".$key['nom_article']."</td>";
-            echo "<td class='tdpetit'>".$key['login']."</td>";
-            echo "</tr>";
-        }
-    }
+    //     foreach ($resultat as $key) {
+    //         echo "<tr>";
+    //         echo "<td class='tdpetit'>".$key['id_payer']."</td>";
+    //         echo "<td class='tdpetit'>".$key['id_commande']."</td>";
+    //         echo "<td class='tdpetit'>".$key['quantite']."</td>";
+    //         echo "<td class='tdmoyen'>".$key['prix_total']. '.OO €' ."</td>";
+    //         echo "<td class='tdpetit'>".$key['nom_commande']."</td>";
+    //         echo "<td class='tdpetit'>".$key['prenom_commande']."</td>";
+    //         echo "<td class='tdpetit'>".$key['pays']."</td>";
+    //         echo "<td class='tdpetit'>".$key['ville']."</td>";
+    //         echo "<td class='tdpetit'>".$key['cp']."</td>";
+    //         echo "<td class='tdpetit'>".$key['telephone']."</td>";
+    //         echo "<td class='tdgrand'>".$key['adresse']."</td>";
+    //         echo "<td class='tdgrand'>".$key['email_commande']."</td>";
+    //         echo "<td class='tdgrand'>".$key['nom_article']."</td>";
+    //         echo "<td class='tdpetit'>".$key['login']."</td>";
+    //         echo "</tr>";
+    //     }
+    // }
+
 
     // public function affichercommandepassuser($_id_user){
     //     $db = $this->_db;

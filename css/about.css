@@ -1,0 +1,190 @@
+.about {
+    height: 500px;
+    border: 1px solid white;
+    background-image: url(../images-boutique/aboutus.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: flex-end;
+    filter: brightness(75%);
+    -webkit-filter: brightness(75%);
+    -moz-filter: brightness(75%);
+    -o-filter: brightness(75%);
+    -ms-filter: brightness(75%);
+    transition: 0.75s;
+}
+
+.about:hover {
+    filter: brightness(110%);
+    -webkit-filter: brightness(110%);
+    -moz-filter: brightness(110%);
+    -o-filter: brightness(110%);
+    -ms-filter: brightness(110%);
+}
+
+.titre-about {
+    padding-top: 220px;
+    padding-right: 130px;
+    padding-bottom: 10px;
+    width: 620px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+    font-size: 60px;
+    color: white;
+    transition: 0.5s;
+}
+
+.titre-about:hover {
+    font-size: 62px;
+}
+
+.banière-noir {
+    border: 1px solid white;
+    /* padding: 50px; */
+    background-image: url(../images-boutique/banière-noir.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 900px;
+}
+
+.fondateur {
+    padding-top: 50px;
+    padding-left: 50px;
+    width: 325px;
+    height: 60px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+    font-size: 60px;
+    color: white;
+    transition: 0.5s;
+    margin-left: 725px;
+}
+
+.caserouge-about {
+    border-top: 0px;
+    border: 1px solid white;
+    padding: 30px;
+    background-image: url(../images-boutique/degrader.png);
+    height: 190px;
+}
+
+.titrecaserouge-about {
+    text-align: center;
+    padding-top: 50px;
+    color: #F7EBE8;
+    font-size: 60px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+}
+
+.samir-nadir {
+    margin-top: 125px;
+    height: 200px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.samir {
+    background-image: url(../images-boutique/samir.png);
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+    width: 200px;
+    border: 2px solid white;
+    border-radius: 100px;
+    transition: 0.5s;
+}
+
+.samir:hover {
+    border: 5px solid white;
+    height: 195px;
+    width: 195px;
+}
+
+.nadir {
+    background-image: url(../images-boutique/nadir.jpeg);
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+    width: 200px;
+    border: 2px solid white;
+    border-radius: 100px;
+    -webkit-filter: brightness(75%);
+    -moz-filter: brightness(75%);
+    -o-filter: brightness(75%);
+    -ms-filter: brightness(75%);
+    transition: 0.5s;
+}
+
+.nadir:hover {
+    border: 5px solid white;
+    height: 195px;
+    width: 195px;
+}
+
+.louni-ziane {
+    margin-top: 10px;
+    height: 200px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.louni {
+    text-align: center;
+    color: #F7EBE8;
+    font-size: 50px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+}
+
+.ziane {
+    text-align: center;
+    color: #F7EBE8;
+    font-size: 50px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+}
+
+.histoire-recon {
+    padding-top: 55px;
+    padding-left: 55px;
+    color: black;
+    font-size: 40px;
+    font-family: 'Poppins', sans-serif;
+    /* font-weight: bolder; */
+}
+
+.partie-socialnet {
+    margin-top: 50px;
+    height: 650px;
+    border: 2px solid black;
+    background-color: #C4C4C4;
+    display: flex;
+    justify-content: center;
+}
+
+.socialnet {
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.336);
+    background-color: #EAE5E5;
+    width: 700px;
+    height: 650px;
+    border: 2px solid black;
+    border-top: none;
+    border-bottom: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.network {
+    height: 60px;
+    width: 60px;
+    transition: 0.5s;
+}
+
+.network:hover {
+    height: 80px;
+    width: 80px;
+}

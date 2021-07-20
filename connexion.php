@@ -6,54 +6,44 @@
     </div>
     <hr>
 </section>
-    <section class = 'caseconnexioninscription'>
-        <section class = 'caseconnexionbase'>
-            <h3 class = 'titreconnexioninscription'>Déjà inscrit ? </h3>
-            <br>
-                <div class = 'caseconnexion'>
-                    <form action = '' method="post">
-                        <label class='lbl' for="login">Login : </label>
-                        <input class='inpt'  type = 'text' name = 'login' > <br>
-                        <label class='lbl' for="password">Mot de passe : </label>
-                        <input class='inpt'  type = 'password' name = 'password'> <br>
-                </div>
-                    <section class = 'caseerreur'>
-                        <?php 
-                            if (isset($_POST['submitconnexion'])) {
-                            $user->connexion($_POST['login'],$_POST['password']);} 
-                        ?>
-                    </section>
-                        <input type = 'submit' name = 'submitconnexion' value = 'Connexion' class = 'buttonconnexion'>
-                    </form>
-        </section>
-            <hr class = 'connexionsepareinscription'>
+<section class = 'caseconnexioninscription'>
         <section class = 'caseinscriptionbase'>
-            <h3 class = 'titreconnexioninscription'> Pas encore membre ? </h3>
-            <div class = 'caseinscription'>
-                <form action = '' method = 'post'>
-                    <label class='lbl' for = "email">Email : </label> 
-                    <input class='inpt' type = 'email' name ='email' ><br>
-                    <label class='lbl' for = "indentifiant">Identifiant : </label>
-                    <input class='inpt' type = 'text' name ='identifiant' ><br>
-                    <label class='lbl' for = "nom">Nom : </label>
-                    <input class='inpt' type = 'text' name ='nom'><br>
-                    <label class='lbl' for = "prenom">Prenom : </label>
-                    <input  class='inpt' type = 'text' name ='prenom' ><br>
-                    <label class='lbl' for="password2">Mot de passe : </label>
-                    <input class='inpt' type = 'password' name = 'password2'> <br>
-                    <label class='lbl' for="confirmpassword">Confirmer mot de passe : </label>
-                    <input class='inpt' type = 'password' name = 'confirmpassword'> <br>
+            <div class="image_inscription">
             </div>
-                <section class = 'caseerreur'>
-                    <?php 
-                        if (isset($_POST['submitinscription'])) {
-                        $user->inscription($_POST['email'],$_POST['identifiant'],$_POST['nom'],$_POST['prenom'],$_POST['password2'], $_POST['confirmpassword']);} 
-                        ?>
-                </section>
-                    <input type = 'submit' name = "submitinscription" value = 'Inscription' class = 'buttonconnexion'>
-                </form>
+            <div class = 'caseinscription'>
+                <div class="form_connexion" id = 'form_connexion'  autocomplete = 'off'>
+                    <form action = '' method = 'post'>
+                        <input type = 'text'  placeholder = 'IDENTIFIANT'  id ='login'><br>
+                        <input type = 'password'  placeholder = 'PASSWORD' id ='pass'> <br>
+                    </form>
+                    <div class = 'button_center'>
+                        <button type = 'submit' id = 'connexion_button'>CONNEXION</button>
+                    </div>
+                    <p id = 'inscrivez-vous'>Toujours pas inscrit ?</p>
+                </div>
+            <div id = 'form_inscription'>
+                    <form action = '' method = 'post' autocomplete = 'off'>
+                        <input type = 'email' placeholder = 'EMAIL' id ='mail' name = 'mail'>
+                        <input type = 'text' placeholder = 'IDENTIFIANT' id = 'identifiant' name = 'identifiant ' ><br>
+                        <input  type = 'text' placeholder = 'NOM' id = 'nom' name = 'nom'>
+                        <input   type = 'text' placeholder = 'PRENOM' id = 'prenom' name = 'prenom'><br>
+                        <input type = 'password' placeholder = 'PASSWORD' id ='password-inscription' name = 'password-inscription'> 
+                        <input type = 'password' placeholder = 'PASSWORD' id = 'confirm-password' name = 'confirm-password'> <br>
+                    </form>
+                    <div class = 'button_center'>
+                        <button type = 'submit' id = 'inscription_button'>INSCRIPTION</button>
+                    </div>
+                    <p id = 'connectez-vous'>Se connecter</p>
+            </div>
+          </div>
         </section>
     </section>
 <?php include 'footer.php';?>
 </body>
 </html>
+
+<script>
+    inscription();
+    connexion();
+</script>
+<script src = 'javascript/style.js'></script>

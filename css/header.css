@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+
+/*HEADER*/
+
+header {
+    background-color: #1E1E24;
+    height: 122px;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.295);
+}
+
+.titreheader {
+    color: white;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+nav {
+    list-style: none;
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    font-family: 'Poppins', sans-serif;
+}
+
+li {
+    margin-left: 3%;
+    font-family: 'Poppins', sans-serif;
+}
+
+.logouser {
+    width: 24px;
+    height: 24px;
+    float: right;
+    margin-right: 2%;
+    margin-top: 0.5%;
+}
+
+.titre {
+    text-align: center;
+}
+
+.logopanier {
+    width: 24px;
+    height: 24px;
+    float: right;
+    margin-right: 2%;
+}
+
+.logorecherche {
+    width: 24px;
+    height: 24px;
+}
+
+body {
+    background-color: #F7EBE8;
+    margin-bottom: 60px;
+}
+
+.marge_footer {
+    margin-top: 10px;
+}
+
+.marge_footer2 {
+    margin-top: 10%
+}

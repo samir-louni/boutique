@@ -65,7 +65,7 @@ if(isset($_GET['del'])){
                                 $panier->finaliserCommandedetail($key, $value);
                             }
                         }
-                        header("location:paiement.php");
+                        echo "<script>document.location.replace('../boutique/paiement.php')</script>";
                     }else{
                         echo"<script language=\"javascript\">";
                         echo"alert('remplissez tout les champs')";
